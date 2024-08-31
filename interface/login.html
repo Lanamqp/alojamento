@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Alojamento Estudantil</title>
+    <link rel="stylesheet" href="estilo2.css">
+</head>
+<body>
+    <header> 
+        <h1>Login - Alojamento Estudantil</h1>
+    </header>
+
+    <div class="container" id="login">
+        <h2>Faça seu login</h2>
+        <form action="#" method="post" onsubmit="return redirecionarUsuario()">
+            <label for="tipo">Tipo de Usuário:</label>
+            <select id="tipo" name="tipo" required>
+                <option value="administrador">Administrador</option>
+                <option value="funcionario">Funcionário de Manutenção</option>
+                <option value="estudante">Estudante</option>
+            </select>
+            
+            <label for="username">Usuário:</label>
+            <input type="text" id="username" name="username" required>
+            
+            <label for="password">Senha:</label>
+            <input type="password" id="password" name="password" required>
+            
+            <input type="submit" value="Entrar">
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Alojamento Estudantil. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+    function redirecionarUsuario() {
+        var tipoUsuario = document.getElementById('tipo').value;
+        
+        if (tipoUsuario === 'administrador') {
+            window.location.href = 'dashboard_adm.html';
+        } else if (tipoUsuario === 'estudante') {
+            window.location.href = 'dasboard_estudante.html';
+        } else if (tipoUsuario === 'funcionario') {
+            alert('Dashboard para Funcionários de Manutenção ainda não implementado.');
+        } else {
+            alert('Tipo de usuário não reconhecido');
+            return false;
+        }
+        return false; // Impede o envio do formulário após o redirecionamento
+    }
+    </script>
+</body>
+</html>
