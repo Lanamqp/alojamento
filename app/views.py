@@ -1,78 +1,81 @@
 from django.shortcuts import render
-
 from django.views import View
+from .models import Cidade, Curso, Turma, Alojamento, Quarto, Pessoa
 
-from .models import*
-
+# View para a página inicial
 class IndexView(View):
     def get(self, request):
-        return render(request, 'index.html',)
+        return render(request, 'index.html')
+
     def post(self, request):
         pass
 
+# View para exibir a lista de Pessoas
 class PessoaView(View):
     template_name = 'pessoa.html'
+
     def get(self, request):
         pessoas = Pessoa.objects.all()  
-        return render(request, 'pessoa.html', {'pessoas': pessoas})
+        return render(request, self.template_name, {'pessoas': pessoas})
     
     def post(self, request):
         pass
 
-class AtividadeView(View):
-    template_name = 'atividade.html'
+# View para exibir a lista de Cidades
+class CidadeView(View):
+    template_name = 'cidade.html'
+
     def get(self, request):
-        atividades = Atividade.objects.all()  
-        return render(request, 'atividade.html', {'atividades': atividades})
+        cidades = Cidade.objects.all()  
+        return render(request, self.template_name, {'cidades': cidades})
     
     def post(self, request):
         pass
 
-class InscricaoView(View):
-    template_name = 'inscricao.html'
-    def get(self, request):
-        inscricoes = Inscricao.objects.all()  
-        return render(request, 'inscricao.html', {'inscricoes': inscricoes})
-    
-    def post(self, request):
-        pass
-from django.shortcuts import render
-from django.views import View
-from .models import Local
+# View para exibir a lista de Cursos
+class CursoView(View):
+    template_name = 'curso.html'
 
-class LocalView(View):
-    template_name = 'local.html'
     def get(self, request):
-        locais = Local.objects.all() 
-        return render(request, 'local.html', {'locais': locais})
+        cursos = Curso.objects.all()  
+        return render(request, self.template_name, {'cursos': cursos})
     
     def post(self, request):
         pass
 
-class OcupacaoView(View):
-    template_name = 'ocupacao.html'
+# View para exibir a lista de Turmas
+class TurmaView(View):
+    template_name = 'turma.html'
+
     def get(self, request):
-        ocupacoes = Ocupacao.objects.all()  
-        return render(request, 'ocupacao.html', {'ocupacoes': ocupacoes})
+        turmas = Turma.objects.all()  
+        return render(request, self.template_name, {'turmas': turmas})
     
     def post(self, request):
         pass
 
-class EventoView(View):
-    template_name = 'evento.html'
+# View para exibir a lista de Alojamentos
+class AlojamentoView(View):
+    template_name = 'alojamentos.html'
+
     def get(self, request):
-        eventos = Evento.objects.all()  
-        return render(request, 'evento.html', {'eventos': eventos})
+        alojamentos = Alojamento.objects.all()  
+        return render(request, self.template_name, {'alojamentos': alojamentos})
     
     def post(self, request):
         pass
 
-class CategoriaView(View):
-    template_name = 'categoria.html'
+# View para exibir a lista de Quartos
+class QuartoView(View):
+    template_name = 'quarto.html'
+
     def get(self, request):
-        categorias = Categoria.objects.all()  
-        return render(request, 'categoria.html', {'categorias': categorias})
+        quartos = Quarto.objects.all()  
+        return render(request, self.template_name, {'quartos': quartos})
     
     def post(self, request):
         pass
-    
+
+
+
+

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Quartos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #e9f5e9;
+        }
+        .container {
+            margin-top: 20px;
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px 0;
+            background-color: #2c3e50;
+            color: #fff;
+            font-size: 0.9em;
+            border-top: 1px solid #1e272e;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Lista de Quartos</h1>
+        <table class="table table-bordered table-striped mt-4">
+            <thead class="thead-light">
+                <tr>
+                    <th>ID</th>
+                    <th>Nome do Quarto</th>
+                    <th>Capacidade</th>
+                    <th>Alojamento</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if quartos %}
+                    {% for quarto in quartos %}
+                        <tr>
+                            <td>{{ quarto.id }}</td>
+                            <td>{{ quarto.nome }}</td>
+                            <td>{{ quarto.capacidade }}</td>
+                            <td>{{ quarto.alojamento.nome }}</td>
+                        </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td colspan="4" class="text-center">Nenhum quarto encontrado.</td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Alojamento Estudantil. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
